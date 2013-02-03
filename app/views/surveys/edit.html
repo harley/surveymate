@@ -1,24 +1,59 @@
-<h1>survey edit</h1>
+<h1>surveymate</h1>
+<hr>
 
-        <h2>{{ works }}</h2>
-<div>
-    <label>
-        Survey title:
-        <input type="text" ng-model="survey.title"/>
-    </label>
-
-
+<div class="survey-heading">
+    <form name="editSurvey">
+        <input name="survey[title]" type="text" ng-model="survey.title"
+               placeholder="Survey title" class="input-xxlarge"/>
+        <br>
+        <textarea name="survey[description]" cols="30" rows="3"
+                  class="input-xxlarge" placeholder="Survey description"
+                  ng-model="survey.description"></textarea>
+    </form>
 </div>
 
-<h2>Questions</h2>
-
-<h3>{{ survey.title }}</h3>
-{{survey.questions}}
-<div class="question" ng-repeat="question in survey.questions">
+<div class="question-preview form-horizontal" ng-repeat="question in survey.questions">
     <div class="question-title">
         {{ question.title }}
     </div>
     <div class="question-body">
-        {{ question.body }}
+        <ul class="unstyled">
+            <li ng-repeat="choice in question.choices">
+                <label class="radio">
+                    <input type="radio"/>
+                    {{ choice.content }}
+                </label>
+            </li>
+        </ul>
+    </div>
+    <div class="edit-actions">
+        <a href="#"><i class="icon-edit"></i></a>
+        <a href="#"><i class="icon-book"></i></a>
+        <a href="#"><i class="icon-remove"></i></a>
     </div>
 </div>
+<div class="question-editor form-horizontal" ng-repeat="question in survey.questions">
+    <table class="table">
+        <tr>
+            <td style="width:100px">Question Title</td>
+            <td>
+                <input type="text" ng-model="question.title"
+                       class="input-xlarge" />
+            </td>
+        </tr>
+    </table>
+    <div class="control-group" ng-repeat="choice in question.choices">
+        <label class="control-label" for="">
+            <input type="radio"/>
+        </label>
+
+        <div class="controls">
+            <input type="text" ng-model="choice.content">
+        </div>
+    </div>
+</div>
+
+
+<hr>
+        <h1>DEBUG</h1>
+{{ survey }}

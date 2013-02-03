@@ -13,7 +13,11 @@ surveymateApp.factory('sampleSurvey', function() {
         description: "Test description",
         questions: [{
             title: "question title 1",
-            body: "question body 1"
+            choices: [
+                { content: 'choice 1' },
+                { content: 'choice 2' }
+            ]
+
         }]
     }
     return survey;

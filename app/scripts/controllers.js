@@ -29,4 +29,8 @@ surveymateApp.controller('QuestionsCtrl', function($scope, questionTypes) {
     $scope.isEditingQuestion = function(question) {
         return true;
     }
+
+    $scope.getQuestionTemplate = function(question) {
+        return "views/surveys/partials/_" + question.type + ".html";
+    }
 });

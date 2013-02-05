@@ -13,6 +13,13 @@ surveymateApp.factory('sampleSurvey', function() {
         description: "Test description",
         questions: [
             {
+                title: "What's your name?",
+                type: "text_response",
+                choices: [
+                    { content: "(optional help text)" }
+                ]
+            },
+            {
                 title: "question title 1",
                 type: "multiple_choice",
                 choices: [
@@ -34,5 +41,9 @@ surveymateApp.factory('sampleSurvey', function() {
 })
 
 surveymateApp.factory('questionTypes', function() {
-    return ["multiple_choice", "checkbox"];
+    return [
+        "multiple_choice",
+        "checkbox",
+        "text_response"
+    ];
 })

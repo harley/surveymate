@@ -1,0 +1,48 @@
+<div class="question-preview form-horizontal"
+     ng-hide="question.isEditing"
+     ng-dblclick="startEditing(question)"
+     question-editable="question">
+	<div class="question-title">
+		{{ question.title }}
+	</div>
+	<div class="question-body">
+		<ul class="unstyled">
+			<li ng-repeat="choice in question.choices">
+				<span>{{choice.content}}</span> <textarea></textarea>
+			</li>
+		</ul>
+	</div>
+	<div class="edit-actions">
+		<a my-question-edit="question" ng-click="startEditing(question)"><i class="icon-edit"></i></a>
+		<a my-question-copy="question"><i class="icon-book"></i></a>
+		<a my-question-remove="question"><i class="icon-remove"></i></a>
+	</div>
+</div>
+<div class="question-editor form-horizontal" ng-show="question.isEditing">
+	<table>
+		<tr>
+			<td style="width:100px">Question Title</td>
+			<td>
+				<textarea ng-model="question.title"
+				          class="input-xxlarge"></textarea>
+			</td>
+		</tr>
+		<tr>
+			<td>Question Type</td>
+			<td>
+				<select ng-model="question.type" ng-options="c for c in questionTypes">
+				</select>
+			</td>
+		</tr>
+	</table>
+	<ul class="question-choices unstyled">
+		<li ng-repeat="choice in question.choices">
+			<span contenteditable ng-model="choice.content"></span> <textarea placeholder="Their answer" readonly></textarea>
+			<a ng-click="removeChoice(question, $index)" class="remove">&times;</a>
+		</li>
+		<li>
+			<a ng-click="addChoice(question, $event)">Add choice</a>
+		</li>
+	</ul>
+	<button class="btn" ng-click="stopEditing(question)">Done</button>
+</div>

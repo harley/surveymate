@@ -1,0 +1,43 @@
+<div class="question-container" ng-controller="QuestionsCtrl">
+	<div class="question-preview form-horizontal"
+	     ng-hide="question.isEditing"
+	     question-editable="question">
+		<div class="question-title">
+			{{ question.title }}
+		</div>
+		<div class="question-body">
+			<ul class="unstyled">
+				<li ng-repeat="choice in question.choices">
+					<label class="radio">
+						<input type="radio"/>
+						{{ choice.content }}
+					</label>
+				</li>
+			</ul>
+		</div>
+		<div class="edit-actions">
+			<a my-question-edit="question" ng-click="startEditing(question)"><i class="icon-edit"></i></a>
+			<a my-question-copy="question"><i class="icon-book"></i></a>
+			<a my-question-remove="question"><i class="icon-remove"></i></a>
+		</div>
+	</div>
+	<div test-ing></div>
+	<div class="question-editor form-horizontal" ng-show="question.isEditing">
+		<table>
+			<tr>
+				<td style="width:100px">Question Title</td>
+				<td>
+					<input type="text" ng-model="question.title"
+					       class="input-xlarge"/>
+				</td>
+			</tr>
+		</table>
+		<ul class="question-choices unstyled" ng-repeat="choice in question.choices">
+			<li>
+				<input type="radio" disabled/>
+				<input type="text" ng-model="choice.content">
+			</li>
+		</ul>
+		<button class="btn" ng-click="stopEditing(question)">Done</button>
+	</div>
+</div>

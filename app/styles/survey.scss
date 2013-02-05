@@ -2,11 +2,20 @@
   background-color: #efefef;
   border: 1px solid #999;
   padding: 10px;
+
+  > table {
+    width: 100%;
+    margin-bottom: 20px;
+  }
 }
 
 .question-preview {
   padding: 10px;
   position: relative;
+
+  .question-title {
+    font-weight: bold;
+  }
 
   .edit-actions {
     display: none;
@@ -21,4 +30,13 @@
       display: block;
     }
   }
+}
+
+input.survey-title {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.question-editor .question-choices {
+  margin-left: 40px;
 }

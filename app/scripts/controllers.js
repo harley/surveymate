@@ -11,4 +11,12 @@ surveymateApp.controller('SurveysCtrl', function($scope, sampleSurvey) {
     $scope.stopEditing = function(question) {
         question.isEditing = false;
     }
+
+    $scope.addChoice = function(question) {
+        question.choices.push({content: ''});
+    }
+
+    $scope.removeChoice = function(question, index) {
+        question.choices.splice(index, 1);
+    }
 });

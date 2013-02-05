@@ -40,3 +40,14 @@ input.survey-title {
 .question-editor .question-choices {
   margin-left: 40px;
 }
+
+a.remove {
+  font-size: 24px;
+}
+
+.question-editor textarea {
+  height: 20px;
+  &[readonly]{
+    cursor: pointer;
+  }
+}

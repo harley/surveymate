@@ -1,6 +1,7 @@
 <div class="question-container" ng-controller="QuestionsCtrl">
 	<div class="question-preview form-horizontal"
 	     ng-hide="question.isEditing"
+	     ng-dblclick="startEditing(question)"
 	     question-editable="question">
 		<div class="question-title">
 			{{ question.title }}
@@ -35,7 +36,16 @@
 		<ul class="question-choices unstyled" ng-repeat="choice in question.choices">
 			<li>
 				<input type="radio" disabled/>
-				<input type="text" ng-model="choice.content">
+				<textarea ng-model="choice.content"></textarea>
+				<a ng-click="removeChoice(question, $index)" class="remove">&times;</a>
+			</li>
+		</ul>
+		<ul class="question-choices unstyled">
+			<li>
+				<input type="radio" disabled/>
+				<textarea ng-click="addChoice(question, $event)"
+				          readonly
+				          placeholder="Add choice"></textarea>
 			</li>
 		</ul>
 		<button class="btn" ng-click="stopEditing(question)">Done</button>

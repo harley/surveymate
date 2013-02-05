@@ -13,6 +13,15 @@ surveymateApp.factory('sampleSurvey', function() {
         description: "Test description",
         questions: [
             {
+                title: "A dropdown question",
+                type: "dropdown",
+                choices: [
+                    { content: "one" },
+                    { content: "two" },
+                    { content: "three" }
+                ]
+            },
+            {
                 title: "What's your name?",
                 type: "text_response",
                 choices: [
@@ -44,6 +53,7 @@ surveymateApp.factory('questionTypes', function() {
     return [
         "multiple_choice",
         "checkbox",
-        "text_response"
+        "text_response",
+        "dropdown"
     ];
 })

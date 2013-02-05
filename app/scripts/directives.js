@@ -7,6 +7,8 @@ surveymateApp.directive('sQuestion', function () {
     }
 });
 
+// used to bind choice content in TextResponse question type
+// need to fix bug of choices' content disappearing when changing question type
 surveymateApp.directive('contenteditable', function() {
     return {
         restrict: 'A', // only activate on element attribute

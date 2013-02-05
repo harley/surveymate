@@ -1,0 +1,75 @@
+<div class="question-preview form-horizontal"
+     ng-hide="question.isEditing"
+     ng-dblclick="startEditing(question)"
+     question-editable="question">
+	<div class="question-title">
+		{{ question.title }}
+	</div>
+	<div class="question-body">
+		<table>
+			<tr>
+				<td></td>
+				<td ng-repeat="choice_column in question.choice_columns">
+					{{choice_column.content}}
+				</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>{{question.choices[0].content}}</td>
+				<td ng-repeat="choice_column in question.choice_columns">
+					<input type="radio"></input>
+				</td>
+				<td>{{question.choices[1].content}}</td>
+			</tr>
+		</table>
+	</div>
+	<div class="edit-actions">
+		<a my-question-edit="question" ng-click="startEditing(question)"><i class="icon-edit"></i></a>
+		<a my-question-copy="question"><i class="icon-book"></i></a>
+		<a my-question-remove="question"><i class="icon-remove"></i></a>
+	</div>
+</div>
+<div class="question-editor form-horizontal" ng-show="question.isEditing">
+	<table>
+		<tr>
+			<td style="width:100px">Question Title</td>
+			<td>
+				<textarea ng-model="question.title"
+				          class="input-xxlarge"></textarea>
+			</td>
+		</tr>
+		<tr>
+			<td>Question Type</td>
+			<td>
+				<select ng-model="question.type" ng-options="c for c in questionTypes">
+				</select>
+			</td>
+		</tr>
+	</table>
+	<table>
+		<tr>
+			<td></td>
+			<td ng-repeat="choice_column in question.choice_columns">
+				<input type="text" ng-model="choice_column.content" class="input-mini"/>
+			</td>
+			<td></td>
+			<td style="width:80px">
+				<a ng-click="addChoiceColumn(question, $event)">Add column</a>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<input type="text" ng-model="question.choices[0].content" class="input-mini"/>
+			</td>
+			<td ng-repeat="choice_column in question.choice_columns">
+				<input type="radio" readonly />
+			</td>
+			<td>
+				<input type="text" ng-model="question.choices[1].content" class="input-mini"/>
+			</td>
+			<td></td>
+		</tr>
+	</table>
+
+	<button class="btn" ng-click="stopEditing(question)">Done</button>
+</div>

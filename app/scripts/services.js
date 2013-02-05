@@ -13,6 +13,21 @@ surveymateApp.factory('sampleSurvey', function() {
         description: "Test description",
         questions: [
             {
+                title: "Scale question",
+                type: "scale",
+                choices: [
+                    { content: "None" },
+                    { content: "All" }
+                ],
+                choice_columns: [
+                    { content: "1"},
+                    { content: "2"},
+                    { content: "3"},
+                    { content: "4"},
+                    { content: "5"}
+                ]
+            },
+            {
                 title: "A dropdown question",
                 type: "dropdown",
                 choices: [

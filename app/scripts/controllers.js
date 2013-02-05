@@ -1,7 +1,6 @@
 'use strict';
 
 surveymateApp.controller('SurveysCtrl', function($scope, sampleSurvey) {
-    $scope.works = "it works baby";
     $scope.survey = sampleSurvey;
 
     $scope.startEditing = function(question) {
@@ -18,5 +17,16 @@ surveymateApp.controller('SurveysCtrl', function($scope, sampleSurvey) {
 
     $scope.removeChoice = function(question, index) {
         question.choices.splice(index, 1);
+    }
+});
+
+surveymateApp.controller('QuestionsCtrl', function($scope, questionTypes) {
+    $scope.questionTypes = questionTypes;
+
+    $scope.isPreviewingQuestion = function(question) {
+        return true;
+    }
+    $scope.isEditingQuestion = function(question) {
+        return true;
     }
 });

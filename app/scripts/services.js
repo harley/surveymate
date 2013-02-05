@@ -14,6 +14,7 @@ surveymateApp.factory('sampleSurvey', function() {
         questions: [
             {
                 title: "question title 1",
+                type: "multiple_choice",
                 choices: [
                     { content: 'choice 1' },
                     { content: 'choice 2' }
@@ -21,6 +22,7 @@ surveymateApp.factory('sampleSurvey', function() {
             },
             {
                 title: "question title 2",
+                type: "checkbox",
                 choices: [
                     { content: "q2 choice 1" },
                     { content: "q2 choice 2" }
@@ -31,11 +33,6 @@ surveymateApp.factory('sampleSurvey', function() {
     return survey;
 })
 
-surveymateApp.controller('QuestionsCtrl', function($scope) {
-    $scope.isPreviewingQuestion = function(question) {
-        return true;
-    }
-    $scope.isEditingQuestion = function(question) {
-        return true;
-    }
-});
+surveymateApp.factory('questionTypes', function() {
+    return ["multiple_choice", "checkbox"];
+})

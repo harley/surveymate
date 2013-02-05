@@ -39,6 +39,9 @@ input.survey-title {
 
 .question-editor .question-choices {
   margin-left: 40px;
+  > li {
+    margin-bottom: 10px;
+  }
 }
 
 a.remove {

@@ -1,7 +1,7 @@
 'use strict';
 
 // Declare app level module which depends on filters, and services
-var surveymateApp = angular.module('surveymateApp', [])
+var surveymateApp = angular.module('surveymateApp', ['ui'])
   .config(['$routeProvider', function($routeProvider) {
     $routeProvider
       .when('/', {

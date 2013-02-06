@@ -8,11 +8,7 @@
 	<div class="question-body">
 		<select ng-model="choice.content" ng-options="choice.content for choice in question.choices"></select>
 	</div>
-	<div class="edit-actions">
-		<a my-question-edit="question" ng-click="startEditing(question)"><i class="icon-edit"></i></a>
-		<a my-question-copy="question"><i class="icon-book"></i></a>
-		<a my-question-remove="question"><i class="icon-remove"></i></a>
-	</div>
+	<edit-actions></edit-actions>
 </div>
 <div class="question-editor form-horizontal" ng-show="question.isEditing">
 	<table>

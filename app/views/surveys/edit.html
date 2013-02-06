@@ -16,10 +16,10 @@
     </form>
 </div>
 
+<div class="question-container" ng-controller="QuestionsCtrl" ng-repeat="question in survey.questions">
+	<div ng-include src="getQuestionTemplate(question)"></div>
+</div>
 
-<s-question ng-repeat="question in survey.questions">
-	DUMMY TEXT
-</s-question>
 
 
 <hr>

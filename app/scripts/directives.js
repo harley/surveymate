@@ -1,12 +1,5 @@
 'use strict';
 
-surveymateApp.directive('sQuestion', function () {
-    return {
-        restrict:'E',
-        templateUrl:'views/surveys/partials/_question.html'
-    }
-});
-
 // used to bind choice content in TextResponse question type
 // need to fix bug of choices' content disappearing when changing question type
 surveymateApp.directive('contenteditable', function() {
@@ -33,4 +26,10 @@ surveymateApp.directive('contenteditable', function() {
             }
         }
     }
-});
+}).
+    directive('editActions', function() {
+        return {
+            restrict: 'E',
+            templateUrl: 'views/surveys/partials/_edit_actions.html'
+        }
+    })

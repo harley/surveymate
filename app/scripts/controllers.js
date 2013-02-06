@@ -22,6 +22,10 @@ surveymateApp.controller('SurveysCtrl', function($scope, sampleSurvey) {
     $scope.addChoiceColumn = function(question) {
         question.choice_columns.push({content: question.choice_columns.length + 1 })
     }
+
+    $scope.removeQuestion = function(survey, index) {
+        survey.questions.splice(index, 1);
+    }
 });
 
 surveymateApp.controller('QuestionsCtrl', function($scope, questionTypes) {

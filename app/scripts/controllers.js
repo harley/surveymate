@@ -26,6 +26,14 @@ surveymateApp.controller('SurveysCtrl', function($scope, sampleSurvey) {
     $scope.removeQuestion = function(survey, index) {
         survey.questions.splice(index, 1);
     }
+
+    $scope.cloneQuestion = function(survey, question, index) {
+        // dup question
+        var dup = _.cloneDeep(question);
+        // insert dup to after question
+        console.log('questions: ', survey.questions)
+        survey.questions.splice(index, 0, dup);
+    }
 });
 
 surveymateApp.controller('QuestionsCtrl', function($scope, questionTypes) {

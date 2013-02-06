@@ -16,8 +16,10 @@
     </form>
 </div>
 
-<div class="question-container" ng-controller="QuestionsCtrl" ng-repeat="question in survey.questions">
-	<div ng-include src="getQuestionTemplate(question)"></div>
+<div ui-sortable ng-model="survey.questions">
+	<div class="question-container" ng-controller="QuestionsCtrl" ng-repeat="question in survey.questions">
+		<div ng-include src="getQuestionTemplate(question)" class="{{question.type}}-question"></div>
+	</div>
 </div>
 
 

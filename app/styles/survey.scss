@@ -12,6 +12,7 @@
 .question-preview {
   padding: 10px;
   position: relative;
+  cursor: move;
 
   .question-title {
     font-weight: bold;
@@ -56,4 +57,15 @@ a.remove {
 }
 .question-preview textarea {
   height: 20px;
+}
+
+tr.choice-columns input[type=text]{
+  width: 20px;
+}
+
+td.scale-question-body {
+  text-align: center;
+}
+td.scale-label input[type=text]{
+  width: 100%;
 }

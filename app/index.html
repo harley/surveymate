@@ -9,10 +9,11 @@
         <title></title>
         <meta name="description" content=""/>
         <meta name="viewport" content="width=device-width"/>
-        <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/css/bootstrap-combined.min.css" rel="stylesheet">
-        <link rel="stylesheet" href="styles/angular-ui.css">
-        <link rel="stylesheet" href="styles/main.css"/>
-        <link rel="stylesheet" href="styles/survey.css"/>
+	    <link rel="stylesheet" href="styles/vendor/bootstrap-combined.min.css">
+	    <link rel="stylesheet" href="styles/angular-ui.css">
+	    <link rel="stylesheet" href="styles/vendor/smoothness/jquery-ui-1.10.0.custom.min.css">
+	    <link rel="stylesheet" href="styles/main.css"/>
+	    <link rel="stylesheet" href="styles/survey.css"/>
 
     </head>
     <body ng-app="surveymateApp">
@@ -24,10 +25,11 @@
         <!-- Add your site or application content here -->
         <div class="container" ng-view></div>
 
+        <script src="scripts/vendor/jquery-1.8.3.js"></script>
+        <script src="scripts/vendor/jquery-ui-1.10.0.custom.js"></script>
         <script src="scripts/vendor/angular.js"></script>
         <script src="scripts/vendor/angular-ui.js"></script>
         <script src="scripts/vendor/lodash.js"></script>
-        <script src="scripts/vendor/jquery-1.8.3.js"></script>
 
         <!-- build:js scripts/scripts.js -->
         <script src="scripts/surveymate.js"></script>
